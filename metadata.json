@@ -1,0 +1,6 @@
+{
+  "name": "LinkHubTab",
+  "description": "A multi-tabbed navigator that allows quick access to various web links with a polished UI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
