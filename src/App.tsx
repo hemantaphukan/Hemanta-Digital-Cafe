@@ -260,9 +260,9 @@ export default function App() {
                           <Printer className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                         </div>
                         <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Login</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access the Dukang print service portal and user authentication.</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Rekha Print member portal and print authentication.</p>
                         <a 
-                          href="https://dukang.in/login" 
+                          href="https://rekhaprint.info/members/login" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
@@ -276,9 +276,9 @@ export default function App() {
                           <Printer className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                         </div>
                         <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Server-2 Login</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Rekha Print Server-2 member portal and user login.</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Dukang Print Server-2 member portal and user login.</p>
                         <a 
-                          href="https://rekhaprint.info/members/login" 
+                          href="https://dukang.in/login" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
@@ -412,6 +412,22 @@ export default function App() {
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
                         >
                           Apply Online
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Smartphone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Mobile No. Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Verify Aadhaar validity and check linked mobile number status on UIDAI portal.</p>
+                        <a 
+                          href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/en" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check Mobile No.
                         </a>
                       </div>
                     </div>
