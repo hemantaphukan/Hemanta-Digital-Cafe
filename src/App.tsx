@@ -28,7 +28,11 @@ import {
   Printer,
   Download,
   Monitor,
-  Shield
+  Shield,
+  Search,
+  Car,
+  CreditCard,
+  Camera
 } from 'lucide-react';
 
 interface TabLink {
@@ -40,7 +44,10 @@ interface TabLink {
 
 const DEFAULT_LINKS: TabLink[] = [
   { id: 'dashboard', title: 'Business Tools', url: 'https://ais.studio', icon: <Home className="w-5 h-5" /> },
+  { id: 'print-portal', title: 'Print Portal', url: 'https://rekhaprint.info/members/login', icon: <Printer className="w-5 h-5" /> },
   { id: 'pucc-apply', title: 'PUCC Apply Online', url: 'https://form.jotform.com/260033901392449', icon: <FileText className="w-5 h-5" /> },
+  { id: 'aadhaar-services', title: 'Aadhaar Services', url: 'https://myaadhaar.uidai.gov.in/', icon: <ShieldCheck className="w-5 h-5" /> },
+  { id: 'csc-vehicle', title: 'CSC/ Vehicle Etc.', url: 'https://digitalseva.csc.gov.in/', icon: <Car className="w-5 h-5" /> },
 ];
 
 export default function App() {
@@ -182,7 +189,19 @@ export default function App() {
               <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                   <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">{activeLink.title} Overview</h1>
-                  <p className="text-slate-500 dark:text-slate-400 mt-1">Operational view and resource configuration for this module.</p>
+                  <p className="text-slate-500 dark:text-slate-400 mt-1">
+                    {activeTab === 'dashboard'
+                      ? 'Operational view and resource configuration for all business tools.'
+                      : activeTab === 'print-portal'
+                      ? 'Centralized management and fast access to all online print servers and document utilities.'
+                      : activeTab === 'pucc-apply'
+                      ? 'Online Pollution Under Control Certificate (PUCC) applications, fine clearance, and mobile linkage verification.'
+                      : activeTab === 'aadhaar-services'
+                      ? 'Official UIDAI resident services for e-Aadhaar download, status tracking, validity verification, and mobile linkage.'
+                      : activeTab === 'csc-vehicle'
+                      ? 'CSC digital seva portal, vehicle registration, motor insurance, and transport utilities.'
+                      : 'Operational view and resource configuration for this module.'}
+                  </p>
                 </div>
                 
                 {activeLink.url && activeLink.url !== '#' && (
@@ -224,146 +243,18 @@ export default function App() {
                       </div>
 
                       <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PUCC Fine Check</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check and pay Pollution Under Control Certificate fines online.</p>
-                        <a 
-                          href="https://puc.parivahan.gov.in/puc/views/OnlineFinePayment.xhtml" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Check Fines
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Smartphone className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PUCC Mobile Link Check</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check PUC certificate history and mobile link status online.</p>
-                        <a 
-                          href="https://puc.parivahan.gov.in/puc/views/PucCertificateHistory.xhtml" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Check History
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Printer className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Login</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Rekha Print member portal and print authentication.</p>
-                        <a 
-                          href="https://rekhaprint.info/members/login" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Open Login
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Printer className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Server-2 Login</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Dukang Print Server-2 member portal and user login.</p>
-                        <a 
-                          href="https://dukang.in/login" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Open Login
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-rose-50 dark:bg-rose-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Printer className="w-6 h-6 text-rose-600 dark:text-rose-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Server-3 Login</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Service to Point Server-3 authentication and print portal.</p>
-                        <a 
-                          href="https://servicetopoint.com/web/index.php/auth/login.php" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Open Login
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
                         <div className="w-10 h-10 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Smartphone className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                          <Camera className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Vehicle Mobile Linking</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Vahan online portal for vehicle mobile number update and linking services.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Passport Photo Print</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Create, edit, and print standard passport and visa photos online instantly.</p>
                         <a 
-                          href="https://vahan.parivahan.gov.in/vahanservice/vahan/ui/statevalidation/homepage.xhtml" 
+                          href="https://akprinthub.com/en/service/passport-photo" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
                         >
-                          Link Mobile
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Download className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Download</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Download official e-Aadhaar card online from UIDAI myAadhaar portal.</p>
-                        <a 
-                          href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Download Aadhaar
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-teal-50 dark:bg-teal-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <ShieldCheck className="w-6 h-6 text-teal-600 dark:text-teal-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Status Check</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check enrollment and update status of your Aadhaar card on UIDAI portal.</p>
-                        <a 
-                          href="https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Check Status
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">CSC DigitalSeva Login</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access the official CSC Digital Seva Portal for e-governance and citizen services.</p>
-                        <a 
-                          href="https://digitalseva.csc.gov.in/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Open Login
+                          Print Photo
                         </a>
                       </div>
 
@@ -385,49 +276,17 @@ export default function App() {
 
                       <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
                         <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                          <User className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Car & Bike Insurance</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access PBPartners for motor insurance quotes and instant policy issuance.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">e-Shram Card Apply</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Self-registration and profile update portal for unorganized workers under e-Shram.</p>
                         <a 
-                          href="https://www.pbpartners.com/" 
+                          href="https://register.eshram.gov.in/#/user/self" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
                         >
-                          Get Insurance
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-teal-50 dark:bg-teal-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <FileText className="w-6 h-6 text-teal-600 dark:text-teal-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PUCC Apply Online</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Submit online application form for Pollution Under Control Certificate.</p>
-                        <a 
-                          href="https://form.jotform.com/260033901392449" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Apply Online
-                        </a>
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
-                        <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Smartphone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                        </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Mobile No. Check</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Verify Aadhaar validity and check linked mobile number status on UIDAI portal.</p>
-                        <a 
-                          href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/en" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
-                        >
-                          Check Mobile No.
+                          Apply e-Shram
                         </a>
                       </div>
                     </div>
@@ -468,6 +327,504 @@ export default function App() {
                       </div>
                       <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
                         "Next automated sync cycle scheduled for 18:00 UTC."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : activeTab === 'print-portal' ? (
+                <div className="grid grid-cols-12 gap-6">
+                  {/* Left Column: Print Portal Cards */}
+                  <div className="col-span-12 lg:col-span-8 space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Printer className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Server-1 Login</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Rekha Print Server-1 member portal and document printing services.</p>
+                        <a 
+                          href="https://rekhaprint.info/members/login" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open Login
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Printer className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Server-2 Login</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Dukang Print Server-2 member portal and user authentication.</p>
+                        <a 
+                          href="https://dukang.in/login" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open Login
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-rose-50 dark:bg-rose-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Printer className="w-6 h-6 text-rose-600 dark:text-rose-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Print Portal Server-3 Login</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access Service to Point Server-3 authentication and print portal.</p>
+                        <a 
+                          href="https://servicetopoint.com/web/index.php/auth/login.php" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open Login
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Print Cluster Status */}
+                  <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Print Cluster Status</h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Printer className="w-4 h-4 text-purple-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Server 1 (Rekha)</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Printer className="w-4 h-4 text-amber-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Server 2 (Dukang)</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Printer className="w-4 h-4 text-rose-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Server 3 (Point)</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Cpu className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Load Balancer</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">OPTIMIZED</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-6 text-white shadow-lg border border-transparent dark:border-slate-800 transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Print Spool Capacity</h4>
+                      <div className="text-3xl font-bold mb-4 tracking-tighter tabular-nums">94% <span className="text-sm font-medium text-slate-500 ml-1">OPTIMIZED</span></div>
+                      <div className="w-full bg-slate-700 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: '94%' }}
+                          transition={{ duration: 1, delay: 0.5 }}
+                          className="bg-emerald-500 h-full"
+                        />
+                      </div>
+                      <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
+                        "High-speed document dispatch and rasterization cluster synchronized."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : activeTab === 'pucc-apply' ? (
+                <div className="grid grid-cols-12 gap-6">
+                  {/* Left Column: PUCC Cards */}
+                  <div className="col-span-12 lg:col-span-8 space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-teal-50 dark:bg-teal-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <FileText className="w-6 h-6 text-teal-600 dark:text-teal-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PUCC Apply Online</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Submit online application form for Pollution Under Control Certificate.</p>
+                        <a 
+                          href="https://form.jotform.com/260033901392449" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Apply Online
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PUCC Fine Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check and pay Pollution Under Control Certificate fines online.</p>
+                        <a 
+                          href="https://puc.parivahan.gov.in/puc/views/OnlineFinePayment.xhtml" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check Fines
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Smartphone className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PUCC Mobile Link Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check PUC certificate history and mobile link status online.</p>
+                        <a 
+                          href="https://puc.parivahan.gov.in/puc/views/PucCertificateHistory.xhtml" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check History
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Search className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">RC Status Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Search vehicle registration details, owner info, and check real-time RC status.</p>
+                        <a 
+                          href="https://vehicleinfo.app/rc-search" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check RC Status
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: PUCC Service Status & Metrics */}
+                  <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">PUCC Service Status</h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Globe className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Parivahan Gateway</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ONLINE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <FileText className="w-4 h-4 text-teal-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Jotform Endpoint</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Certificate Verification</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">STABLE</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-6 text-white shadow-lg border border-transparent dark:border-slate-800 transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Emission Compliance</h4>
+                      <div className="text-3xl font-bold mb-4 tracking-tighter tabular-nums">100% <span className="text-sm font-medium text-slate-500 ml-1">COMPLIANT</span></div>
+                      <div className="w-full bg-slate-700 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 1, delay: 0.5 }}
+                          className="bg-teal-500 h-full"
+                        />
+                      </div>
+                      <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
+                        "Automated validation check enabled with national register."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : activeTab === 'aadhaar-services' ? (
+                <div className="grid grid-cols-12 gap-6">
+                  {/* Left Column: Aadhaar Services Cards */}
+                  <div className="col-span-12 lg:col-span-8 space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Download className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Download</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Download official e-Aadhaar card online from UIDAI myAadhaar portal.</p>
+                        <a 
+                          href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Download Aadhaar
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-teal-50 dark:bg-teal-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <ShieldCheck className="w-6 h-6 text-teal-600 dark:text-teal-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Status Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check enrollment status and update progress of your Aadhaar card using EID or SRN.</p>
+                        <a 
+                          href="https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check Status
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Smartphone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar Mobile No. Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Verify Aadhaar validity, active state, and confirm the linked mobile number status.</p>
+                        <a 
+                          href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/en" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check Mobile No.
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <User className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">myAadhaar Official Portal</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access full suite of UIDAI resident services, address updates, and PVC ordering.</p>
+                        <a 
+                          href="https://myaadhaar.uidai.gov.in/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open myAadhaar
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: UIDAI Service Status & Security */}
+                  <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">UIDAI Service Status</h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">CIDR Repository</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Globe className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">e-KYC Auth Gateway</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ONLINE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Smartphone className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">OTP Dispatch Node</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">STABLE</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-6 text-white shadow-lg border border-transparent dark:border-slate-800 transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Security & Privacy Score</h4>
+                      <div className="text-3xl font-bold mb-4 tracking-tighter tabular-nums">100% <span className="text-sm font-medium text-slate-500 ml-1">ENCRYPTED</span></div>
+                      <div className="w-full bg-slate-700 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 1, delay: 0.5 }}
+                          className="bg-emerald-500 h-full"
+                        />
+                      </div>
+                      <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
+                        "End-to-end 256-bit encryption verified with UIDAI central services."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : activeTab === 'csc-vehicle' ? (
+                <div className="grid grid-cols-12 gap-6">
+                  {/* Left Column: CSC & Vehicle Cards */}
+                  <div className="col-span-12 lg:col-span-8 space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Search className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">RC Status Check</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Search vehicle registration details, owner info, and check real-time RC status.</p>
+                        <a 
+                          href="https://vehicleinfo.app/rc-search" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Check RC Status
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Car & Bike Insurance</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access PBPartners for instant motor insurance quotes and policy issuance.</p>
+                        <a 
+                          href="https://www.pbpartners.com/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Get Insurance
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Globe className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">CSC Digital Seva Portal</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access CSC digital services, certificates, utility bills, and e-governance tools.</p>
+                        <a 
+                          href="https://digitalseva.csc.gov.in/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open Digital Seva
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Car className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Parivahan Sewa Portal</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">National Portal for vehicle registration, driving licenses, and permit services.</p>
+                        <a 
+                          href="https://vahan.parivahan.gov.in/vahanservice/vahan/ui/statevalidation/homepage.xhtml" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open Parivahan
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-rose-50 dark:bg-rose-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <CreditCard className="w-6 h-6 text-rose-600 dark:text-rose-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">e-Challan Payment</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Check online traffic violation notices and pay pending e-challans instantly.</p>
+                        <a 
+                          href="https://echallan.parivahan.gov.in/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Pay e-Challan
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Monitor className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Cyber Cafe Tools</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access AK Print Hub services and online cyber cafe tools portal.</p>
+                        <a 
+                          href="https://akprinthub.com/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Open Portal
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Status & Telemetry */}
+                  <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Transport & CSC Gateway</h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Car className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Vahan / Sarathi API</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Globe className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">CSC Digital Seva Node</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ONLINE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Insurance Gateway</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">SYNCED</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <CreditCard className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">e-Challan Gateway</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ONLINE</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-6 text-white shadow-lg border border-transparent dark:border-slate-800 transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Service Verification Score</h4>
+                      <div className="text-3xl font-bold mb-4 tracking-tighter tabular-nums">100% <span className="text-sm font-medium text-slate-500 ml-1">OPERATIONAL</span></div>
+                      <div className="w-full bg-slate-700 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 1, delay: 0.5 }}
+                          className="bg-emerald-500 h-full"
+                        />
+                      </div>
+                      <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
+                        "Integrated citizen service delivery & national transport registry sync."
                       </p>
                     </div>
                   </div>
