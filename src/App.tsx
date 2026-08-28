@@ -32,7 +32,8 @@ import {
   Search,
   Car,
   CreditCard,
-  Camera
+  Camera,
+  Briefcase
 } from 'lucide-react';
 
 interface TabLink {
@@ -48,6 +49,7 @@ const DEFAULT_LINKS: TabLink[] = [
   { id: 'pucc-apply', title: 'PUCC Apply Online', url: 'https://form.jotform.com/260033901392449', icon: <FileText className="w-5 h-5" /> },
   { id: 'aadhaar-services', title: 'Aadhaar Services', url: 'https://myaadhaar.uidai.gov.in/', icon: <ShieldCheck className="w-5 h-5" /> },
   { id: 'csc-vehicle', title: 'CSC/ Vehicle Etc.', url: 'https://digitalseva.csc.gov.in/', icon: <Car className="w-5 h-5" /> },
+  { id: 'job-vacancy-apply', title: 'Latest JOB Vacancy Apply', url: 'https://akprinthub.com/en/jobs', icon: <Briefcase className="w-5 h-5" /> },
 ];
 
 export default function App() {
@@ -200,6 +202,8 @@ export default function App() {
                       ? 'Official UIDAI resident services for e-Aadhaar download, status tracking, validity verification, and mobile linkage.'
                       : activeTab === 'csc-vehicle'
                       ? 'CSC digital seva portal, vehicle registration, motor insurance, and transport utilities.'
+                      : activeTab === 'job-vacancy-apply'
+                      ? 'Explore and apply online for the latest government, private, and public sector job vacancies, notifications, and recruitment updates.'
                       : 'Operational view and resource configuration for this module.'}
                   </p>
                 </div>
@@ -260,17 +264,17 @@ export default function App() {
 
                       <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
                         <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Monitor className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                          <CreditCard className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Cyber Cafe Tools</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access AK Print Hub services and online cyber cafe tools portal.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">ID Card Print</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Design, generate, and print PVC identity cards, employee badges, and student IDs online.</p>
                         <a 
-                          href="https://akprinthub.com/" 
+                          href="https://akprinthub.com/en/service/id-card-print" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
                         >
-                          Open Portal
+                          Print ID Card
                         </a>
                       </div>
 
@@ -287,6 +291,22 @@ export default function App() {
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
                         >
                           Apply e-Shram
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <CreditCard className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PAN Card Apply</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Direct access to SathSafar portal login for online PAN card applications, updates, and services.</p>
+                        <a 
+                          href="https://sathsafar.in/portallogin/login" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                        >
+                          Apply PAN Card
                         </a>
                       </div>
                     </div>
