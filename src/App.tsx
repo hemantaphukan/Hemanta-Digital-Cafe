@@ -33,7 +33,10 @@ import {
   Car,
   CreditCard,
   Camera,
-  Briefcase
+  Briefcase,
+  Server,
+  Train,
+  Vote
 } from 'lucide-react';
 
 interface TabLink {
@@ -49,7 +52,7 @@ const DEFAULT_LINKS: TabLink[] = [
   { id: 'pucc-apply', title: 'PUCC Apply Online', url: 'https://form.jotform.com/260033901392449', icon: <FileText className="w-5 h-5" /> },
   { id: 'aadhaar-services', title: 'Aadhaar Services', url: 'https://myaadhaar.uidai.gov.in/', icon: <ShieldCheck className="w-5 h-5" /> },
   { id: 'csc-vehicle', title: 'CSC/ Vehicle Etc.', url: 'https://digitalseva.csc.gov.in/', icon: <Car className="w-5 h-5" /> },
-  { id: 'job-vacancy-apply', title: 'Latest JOB Vacancy Apply', url: 'https://akprinthub.com/en/jobs', icon: <Briefcase className="w-5 h-5" /> },
+  { id: 'admin-login-server', title: 'Admin Login Server', url: 'https://dps.jshtml.xyz/login', icon: <Server className="w-5 h-5" /> },
 ];
 
 export default function App() {
@@ -202,8 +205,8 @@ export default function App() {
                       ? 'Official UIDAI resident services for e-Aadhaar download, status tracking, validity verification, and mobile linkage.'
                       : activeTab === 'csc-vehicle'
                       ? 'CSC digital seva portal, vehicle registration, motor insurance, and transport utilities.'
-                      : activeTab === 'job-vacancy-apply'
-                      ? 'Explore and apply online for the latest government, private, and public sector job vacancies, notifications, and recruitment updates.'
+                      : activeTab === 'admin-login-server' || activeTab === 'job-vacancy-apply'
+                      ? 'Administrative control portal, server login authentication, and backend system utilities.'
                       : 'Operational view and resource configuration for this module.'}
                   </p>
                 </div>
@@ -298,15 +301,33 @@ export default function App() {
                         <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
                           <CreditCard className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PAN Card Apply</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Direct access to SathSafar portal login for online PAN card applications, updates, and services.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PAN Card & PVT. Loan Apply</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Direct access to SathSafar portal login for online PAN card applications, private loans, updates, and financial services.</p>
                         <a 
                           href="https://sathsafar.in/portallogin/login" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
                         >
-                          Apply PAN Card
+                          <span>Apply PAN & Loan</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-orange-200 dark:hover:border-orange-900 transition-colors">
+                        <div className="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Train className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Railway Ticket Booking</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Official IRCTC Next Generation eTicketing system for train search, seat availability, and reservation booking.</p>
+                        <a 
+                          href="https://www.irctc.co.in/nget/train-search" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <span>Book Ticket</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
                     </div>
@@ -401,6 +422,23 @@ export default function App() {
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
                         >
                           Open Login
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="w-10 h-10 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <Vote className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Voter Card Download & New Apply</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Official Election Commission of India portal for digital e-EPIC download, new voter registration, and record correction.</p>
+                        <a 
+                          href="https://voters.eci.gov.in/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <span>Open Voter Portal</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
                     </div>
@@ -845,6 +883,133 @@ export default function App() {
                       </div>
                       <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
                         "Integrated citizen service delivery & national transport registry sync."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : activeTab === 'admin-login-server' ? (
+                <div className="grid grid-cols-12 gap-6">
+                  {/* Left Column: Admin Login Server Cards */}
+                  <div className="col-span-12 lg:col-span-8 space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-purple-200 dark:hover:border-purple-900 transition-colors">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 rounded-lg flex items-center justify-center">
+                            <Server className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase">ONLINE</span>
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Admin Login Server-1</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">DPS Admin Server-1 secure authentication gateway and administrative control portal.</p>
+                        <a 
+                          href="https://dps.jshtml.xyz/login" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <span>Open Server-1 Login</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-center">
+                            <Server className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase">ONLINE</span>
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Admin Login Server-2</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">DashboardWorld Admin Server-2 management console and portal authentication.</p>
+                        <a 
+                          href="https://dashboardworld.in/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <span>Open Server-2 Login</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-200 dark:hover:border-amber-900 transition-colors">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg flex items-center justify-center">
+                            <Server className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase">ONLINE</span>
+                        </div>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Admin Login Server-3</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">EasyFindMaster Admin Server-3 secure portal authentication and console login.</p>
+                        <a 
+                          href="https://easyfindmaster.live/login" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          <span>Open Server-3 Login</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Admin Server Cluster Status */}
+                  <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Admin Server Cluster Status</h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Server className="w-4 h-4 text-purple-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Server 1 (DPS)</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Server className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Server 2 (DashboardWorld)</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Server className="w-4 h-4 text-amber-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Server 3 (EasyFind)</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Auth Gateway</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">ONLINE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Cpu className="w-4 h-4 text-indigo-500" />
+                            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Session Guard</span>
+                          </div>
+                          <span className="text-[10px] font-bold bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-2 py-0.5 rounded tracking-wider uppercase transition-colors">SECURE</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-6 text-white shadow-lg border border-transparent dark:border-slate-800 transition-colors">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Server Cluster Health</h4>
+                      <div className="text-3xl font-bold mb-4 tracking-tighter tabular-nums">99.9% <span className="text-sm font-medium text-slate-500 ml-1">UPTIME</span></div>
+                      <div className="w-full bg-slate-700 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 1, delay: 0.5 }}
+                          className="bg-purple-500 h-full"
+                        />
+                      </div>
+                      <p className="mt-6 text-[10px] text-slate-500 leading-relaxed italic border-t border-slate-700 dark:border-slate-800 pt-4 font-medium uppercase tracking-tight">
+                        "Administrative cluster nodes (Server 1, 2, and 3) synchronized and operational."
                       </p>
                     </div>
                   </div>
