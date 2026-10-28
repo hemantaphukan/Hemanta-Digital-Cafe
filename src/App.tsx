@@ -941,15 +941,29 @@ export default function App() {
                         </div>
                         <h3 className="font-semibold text-slate-800 dark:text-slate-100">Admin Login Server-3</h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">EasyFindMaster Admin Server-3 secure portal authentication and console login.</p>
-                        <a 
-                          href="https://easyfindmaster.live/login" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
-                        >
-                          <span>Open Server-3 Login</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
+                        <div className="space-y-2">
+                          <a 
+                            href="https://easyfindmaster.online/login" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
+                          >
+                            <span>Open Server-3 Login</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                          <div className="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 px-1 pt-1">
+                            <span>Alternative:</span>
+                            <a 
+                              href="https://easyfindmaster.live/login" 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
+                            >
+                              <span>easyfindmaster.live</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
