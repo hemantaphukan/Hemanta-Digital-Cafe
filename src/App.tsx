@@ -297,19 +297,19 @@ export default function App() {
                         </a>
                       </div>
 
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-indigo-200 dark:hover:border-indigo-900 transition-colors">
                         <div className="w-10 h-10 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg mb-4 flex items-center justify-center">
                           <CreditCard className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PAN Card & PVT. Loan Apply</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Direct access to SathSafar portal login for online PAN card applications, private loans, updates, and financial services.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">PAN Card Login</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Official UTIITSL PSA online portal for PAN services, PSA agent authentication, application processing, and status tracking.</p>
                         <a 
-                          href="https://sathsafar.in/portallogin/login" 
+                          href="https://www.psaonline.utiitsl.com/psapanservices/forms/login.html/loginHome" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
                         >
-                          <span>Apply PAN & Loan</span>
+                          <span>Open PAN Card Login</span>
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
