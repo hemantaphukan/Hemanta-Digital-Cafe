@@ -35,7 +35,7 @@ import {
   Camera,
   Briefcase,
   Server,
-  Train,
+  FileCheck,
   Vote
 } from 'lucide-react';
 
@@ -314,19 +314,19 @@ export default function App() {
                         </a>
                       </div>
 
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-orange-200 dark:hover:border-orange-900 transition-colors">
-                        <div className="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <Train className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-emerald-200 dark:hover:border-emerald-900 transition-colors">
+                        <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg mb-4 flex items-center justify-center">
+                          <FileCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Railway Ticket Booking</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Official IRCTC Next Generation eTicketing system for train search, seat availability, and reservation booking.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Life Certificate Login</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Official Jeevan Pramaan portal for digital life certificate submission, pensioner authentication, and PPO user login.</p>
                         <a 
-                          href="https://www.irctc.co.in/nget/train-search" 
+                          href="https://jeevanpramaan.gov.in/v1.0/ppouser/login" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
                         >
-                          <span>Book Ticket</span>
+                          <span>Open Life Certificate Login</span>
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
