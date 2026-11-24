@@ -714,19 +714,20 @@ export default function App() {
                         </a>
                       </div>
 
-                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-blue-200 dark:hover:border-blue-900 transition-colors">
+                      <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-200 dark:hover:border-amber-900 transition-colors">
                         <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-lg mb-4 flex items-center justify-center">
-                          <User className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                          <FileText className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                         </div>
-                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">myAadhaar Official Portal</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Access full suite of UIDAI resident services, address updates, and PVC ordering.</p>
+                        <h3 className="font-semibold text-slate-800 dark:text-slate-100">Aadhaar AutoFill Form</h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 mt-1">Generate, auto-fill, and print Aadhaar enrolment and update forms online quickly.</p>
                         <a 
-                          href="https://myaadhaar.uidai.gov.in/" 
+                          href="https://rkresize.com/aadhaar-enrolment-forms" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center"
+                          className="w-full py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-1.5"
                         >
-                          Open myAadhaar
+                          <span>Open AutoFill Form</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
                     </div>
